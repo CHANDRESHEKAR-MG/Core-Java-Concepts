@@ -35,6 +35,19 @@ class Mobile2 {
     }
 }
 
+
+// 2. Static Method
+
+// A method declared with static belongs to the class, not to an object.
+//static method is used bcz we no need to create object direcly we should class name
+//use class name with method
+class Calculator {
+
+    static int add(int a, int b) {
+        return a + b;
+
+    }
+}
 public class static_keyword_injava {
     public static void main(String[] args) {
 
@@ -64,10 +77,15 @@ public class static_keyword_injava {
         m4.show();
 
         System.out.println(Mobile2.category);
+
+        int res=Calculator.add(10, 20);
+        System.out.println(res);
+
     }
 }
 
 // here, every object gets its own copy of brand and price.
+
 
 
 
