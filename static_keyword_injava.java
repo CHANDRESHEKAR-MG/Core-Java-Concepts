@@ -89,6 +89,18 @@ class Student {
 
 
 
+//5. Static Method Can Access Non-Static Members Through an Object
+class students{
+    String name = "chandu";
+    static void showing(){
+        students obj=new students();
+         System.out.println(obj.name);
+        System.out.println(obj.name);
+    }
+}
+
+
+
 
 public class static_keyword_injava {
     public static void main(String[] args) {
@@ -124,6 +136,12 @@ public class static_keyword_injava {
         System.out.println(res);
 
         Student.showCollege();
+
+        students obj =new students();
+        obj.showing();//creating object inside a main class
+
+        //students.showing(); // creating object inside the child class 
+
 
     }
 }
