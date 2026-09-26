@@ -40,14 +40,56 @@ class Mobile2 {
 
 // A method declared with static belongs to the class, not to an object.
 //static method is used bcz we no need to create object direcly we should class name
-//use class name with method
+//use class name with method name 
 class Calculator {
 
-    static int add(int a, int b) {
+    static int add(int a, int b) { //  static method 
         return a + b;
 
     }
 }
+
+// Static Method and Non-Static Variable
+class Mobile4 {
+
+    String brand = "Apple";
+
+    static void show() {
+        //System.out.println(brand);  // ERROR
+//         This gives an error.Why?
+// brand belongs to an object.
+// But show() belongs to the class.
+// The static method doesn't know which object's brand you want
+        
+    }
+}
+
+
+//a static method cannot directly access non-static variables or methods.
+
+// Static Method Can Access Static Variables
+
+class Student {
+
+    static String college = "PESCE";
+
+    static void showCollege() {
+        System.out.println(college);
+
+        //static method can access the static variable 
+//         static variable
+//                ↓
+          //    college
+
+//             static method
+//                  ↓
+//                 showCollege()
+    }
+}
+
+
+
+
 public class static_keyword_injava {
     public static void main(String[] args) {
 
@@ -81,8 +123,12 @@ public class static_keyword_injava {
         int res=Calculator.add(10, 20);
         System.out.println(res);
 
+        Student.showCollege();
+
     }
 }
+
+
 
 // here, every object gets its own copy of brand and price.
 
