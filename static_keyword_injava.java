@@ -99,10 +99,36 @@ class students{
     }
 }
 
+//Static Block in java
+// static block will bbe executed in intially first print the static block then moved with main class 
+//static block must be inside the main class only
+
+// class Demo {
+
+//     static {
+//         System.out.println("Static block executed");
+//     }
+//}
+
 
 
 
 public class static_keyword_injava {
+    // class Demo {
+
+    static {
+        System.out.println("Static block executed");
+        //static block must be inside the main class only
+    }
+
+     static {
+        System.out.println("Block 1");
+    }
+
+    static {
+        System.out.println("Block 2");
+    }
+//}
     public static void main(String[] args) {
 
         // Without static
@@ -141,6 +167,23 @@ public class static_keyword_injava {
         obj.showing();//creating object inside a main class
 
         //students.showing(); // creating object inside the child class 
+
+
+
+// 7. Why is main() static?
+// You have probably seen:
+// public static void main(String[] args)
+// Why is main() static?
+// Because Java needs to call main() without creating an object.
+// The JVM can directly call:
+// Main.main(args);
+// If main() were non-static, Java would need:
+// Main obj = new Main();
+// obj.main(args);
+// But the JVM needs an entry point before your program starts creating objects.
+// Therefore:
+// static
+// allows the JVM to call main() directly using the class.
 
 
     }
