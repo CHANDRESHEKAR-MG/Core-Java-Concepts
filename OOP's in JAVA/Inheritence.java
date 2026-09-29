@@ -11,7 +11,7 @@
 // Single Inheritance
 // Multilevel Inheritance
 // Hierarchical Inheritance
-// Multiple Inheritance  // java does not support 
+// Multiple Inheritance  // java does not support achieved using interface 
 // Hybrid Inheritance
 
 //Single level inheritence

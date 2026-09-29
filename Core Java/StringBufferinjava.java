@@ -3,8 +3,8 @@ public class StringBufferinjava {
     // It is used to create a string that can be modified after it is created. 
     // It is similar to StringBuilder but it is synchronized. 
     // It is thread-safe. It is slower than StringBuilder.
-    // StringBuffer is used when we need to make a lot of modifications to a string.
-    //
+    // StringBuffer is used when we need to make a lot of modifications to a string in a multi-threaded environment.
+    //Stringbuffer is used when we need to make a lot of modifications to a string in a multi-threaded environment.
         public static void main (String[] args) {
         StringBuffer sb = new StringBuffer( "Hello");
         sb.capacity();// gives the capacity of the string buffer

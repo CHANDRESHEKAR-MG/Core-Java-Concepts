@@ -1,4 +1,4 @@
-// //
+
 // In Java, the static keyword means that a member belongs to the class itself, rather than to individual objects.
 
 // You can use static with:

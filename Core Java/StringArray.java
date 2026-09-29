@@ -37,11 +37,13 @@ public class StringArray{
 
     // Enhanced for loop
     // Enhanced for loop is used to iterate through the elements of an array or a collection. It is also known as for-each loop.
-    //Stdent is also like a data type like int double we can also use it to create a reference variable of type Student.
+    //Student is also like a data type like int double we can also use it to create a reference variable of type Student.                         
 
     for(Student stud : students){//here Student is also a class name and stud is a reference variable of type Student. 
     // It is used to access the elements of the array.
         System.out.println("Roll No: "+stud.rollno + " Name: "+stud.name + " Marks: "+stud.marks);
     }
+     
+
 }
 }
