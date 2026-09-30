@@ -30,7 +30,8 @@ public class DownAndUpCasting {
 // └────────── Reference type = A
 
         A obj2 = (A) new B(); // useing the Parent class in a child class with parent class reference 
-
+           //or
+          // A obj2 = new B();
         obj2.show();
 
         //DOWN CAST
