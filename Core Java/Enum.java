@@ -121,7 +121,13 @@ class Enum{
         Status s = Status.APPROVED;
         System.out.println(s.getMessage()); // Output: Accepted 
 
-         Day day = Day.MONDAY;
+         //Day day = Day.MONDAY;
+        Day day = Day.SATURDAY;
+        // day = Day.WEDNESDAY;
+        System.out.println(day);
+        
+        
+
 
         switch(day) {
 
@@ -131,12 +137,16 @@ class Enum{
 
             case SATURDAY:
             case SUNDAY:
-                System.out.println("Weekend");
+                System.out.println("Weekend Day Enjoy");
                 break;
 
             default:
                 System.out.println("Working day");
         }
+       
+
+
+
         System.out.println(Laptops.LAPTOP); 
         System.out.println(Laptops.DESKTOP);
 //values
