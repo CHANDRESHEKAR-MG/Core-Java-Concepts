@@ -58,6 +58,114 @@ class Car implements Vehicle, Brake{
 }
 
 
+// need of interface is to achieve multiple inheritance in java bcz a class can implement multiple interfaces but a class can extend only one class
+// class laptop extends Computer{
+//     public void code(){
+//         System.out.println("coding in laptop");
+//     }
+// }
+
+// //
+// class developer {
+//     public void devApp(Computer c){//here l is the obj of laptop class and we are passing the object of laptop class to the method of developer class
+//     //no need to create the object of laptop class in main method and pass it to the method of developer class bcz we are passing the object of laptop class to the method of developer class
+//     //passing the object of laptop class to the method of developer class
+//     //this is called dependency injection
+//     //this is called loose coupling bcz the developer class is not dependent on the laptop class
+//     //laptop class is passed as a parameter to the method of developer class
+
+//         c.code();
+//         System.out.println("developing the application");
+//     }
+// }
+// class tester extends developer{ 
+//     public void testApp(developer  dev){
+//         //System.out.println("testing the application");
+//      //passing the object of laptop class to the method of tester class
+//     //this is called dependency injection
+//     //this is called loose coupling bcz the tester class is not dependent on the laptop class
+//     //laptop class is passed as a parameter to the method of tester class
+
+//         // dev.devApp(new laptop ());
+//         // dev.devApp(new Desktop());
+
+//         System.out.println("testing the application");
+//     }
+// }
+
+// class Desktop extends Computer{
+//     // public void desk(developer dev){
+//     //     dev.devApp(new laptop());
+//     // }
+
+//     public void code(){
+//         System.out.println("coding in desktop fatserr ");
+//     }
+
+// }
+
+// // we have 2 option for deeloper to work on laptop or desktop but we are giving the laptop to the developer to work on it but now we are giving the desktop to the developer to work on it  he dont know the working of desktop  
+// //so we acn create the computer class and extends the both computer class and then we can pass the computer class reference and subclass objects  to the developer class method and then we can use the computer class object to work on it
+//     abstract class Computer{
+//     // public void code(){
+//     //no need any printing bcz this is a parent class and we are not creating the object of this class so no need to print anything in sub class as per the developer need 
+//     // so implementation we can make this method and class as abstract class and methods 
+//     // }
+//     public abstract void code();
+//     public void start(){
+//         System.out.println("computer is started");
+//     }
+    
+// }
+
+
+
+
+
+// to overcome from above extends computer and making abstract to calss and methods we can make interface as computer and
+// then we can implement the interface in both laptop and desktop class and then we can pass the interface reference and subclass objects to the developer class method and then we can use the interface reference to work on i
+
+class laptop implements Computer{
+    public void code(){
+        System.out.println("coding in laptop");
+    }
+}
+class developer {
+    public void devApp(Computer c){
+        c.code();
+        System.out.println("developing the application");
+    }
+}
+class tester extends developer{ 
+    public void testApp(developer  dev){
+   dev.devApp(new laptop());
+   dev.devApp(new Desktop());
+   System.out.println("Testing the application");
+
+    }
+    
+}
+
+class Desktop implements Computer
+{
+    public void code(){
+        System.out.println("coding in desktop fatserr ");
+    }
+
+}
+
+interface  Computer
+{
+    public abstract void code();
+}
+
+
+
+
+
+
+
+
 class InterFaceInJava{
     public static void main(String [] args){
         
@@ -87,6 +195,27 @@ class InterFaceInJava{
         //no need to createthe obj for static variable
         System.out.println(Vehicle.CarName);
         System.out.println(Vehicle.model);
+
+
+
+    //      laptop lap = new laptop();
+        developer chandu = new developer();
+    //      chandu.devApp(lap );
+    //     // tester test = new tester();
+    //     Desktop desk = new Desktop();
+    //   //  chandu.devApp(desk); // here t=we are giving the desktop to the developer to work vurt h was devloping the application using the laptop only but now we are giving the desktop to the developer to work on it  he dont know the working of desktop 
+    //     //so he will not be able to work on it so we need to create a new method in developer class that will take the desktop as a parameter and then we can use the desktop to work on it
+
+        Computer comp = new laptop();
+        chandu.devApp(comp); // here we are passing the computer class reference and subclass objects
+        Computer comp1 = new Desktop();
+        chandu.devApp(comp1); // here we are passing the computer class reference and subclass objects
+        //so we can use the computer class object to work on it and we can pass
+        tester test = new tester();
+        test.testApp(chandu); // here we are passing the developer class object to the tester class method and then we can use the developer class object to work on it
+        //so we can use the developer class object to work on it and we can pass the developer class object to the
+       // comp.start();
+       // comp1.start();
 
     }
 }
