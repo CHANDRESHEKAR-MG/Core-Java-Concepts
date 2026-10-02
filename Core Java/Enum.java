@@ -115,10 +115,28 @@ enum Transport implements Vehicle {
         System.out.println("Vehicle is moving");
     }
 }
+//     abstract class vehicle{
+
+//     public abstract void move();
+// }
+// enum TypeOfVehicle extends vehicle {   // not possible to extends only implements is possible 
+//     TwoWheeler,
+//     ThreeWheeler,
+//     FourWheeler,
+//     MoreThanFourWheeler;
+    
+
+//     public void move() {
+//         System.out.println("Vehicle is moving");
+//     }
+// }
 
 class Enum{
     public static void main(String[] args) {
         Status s = Status.APPROVED;
+        System.out.println(s.name()); // Output: APPROVED
+        System.out.println(s.ordinal()); // Output: 1
+        System.out.println(s); // Output: APPROVED
         System.out.println(s.getMessage()); // Output: Accepted 
 
          //Day day = Day.MONDAY;
@@ -168,10 +186,15 @@ System.out.println(Laptops.DESKTOP.ordinal());
 System.out.println(Laptops.TABLET.ordinal());
 
 
-System.out.println(Laptops1.LAPTOP.getPrice());
+System.out.println(Laptops1.LAPTOP.getPrice());//gives price of laptop
 System.out.println(Laptops1.DESKTOP.getPrice());
 
+System.out.println(Laptops1.TABLET.toString());//gives name of the enum constant
+
 Transport.CAR.move();
+
+typeOfVehicle v = TypeOfVehicle.TwoWheeler;
+v.move();
      
     }
 }
