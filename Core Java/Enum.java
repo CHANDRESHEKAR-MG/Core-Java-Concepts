@@ -82,7 +82,7 @@ enum Laptops1{
     //   price = price1;
     // }
     //or
-    Laptops1(int price) {
+    Laptops1(int price) {// its like setter method to set the value of price variable for each enum constant
       this.price = price;
     }
 
@@ -115,21 +115,16 @@ enum Transport implements Vehicle {
         System.out.println("Vehicle is moving");
     }
 }
-//     abstract class vehicle{
+enum TypeOfVehicle implements Vehicle {   // enum can implement an interface, not extend a class
+    TwoWheeler,
+    ThreeWheeler,
+    FourWheeler,
+    MoreThanFourWheeler;
 
-//     public abstract void move();
-// }
-// enum TypeOfVehicle extends vehicle {   // not possible to extends only implements is possible 
-//     TwoWheeler,
-//     ThreeWheeler,
-//     FourWheeler,
-//     MoreThanFourWheeler;
-    
-
-//     public void move() {
-//         System.out.println("Vehicle is moving");
-//     }
-// }
+    public void move() {
+        System.out.println("Vehicle is moving");
+    }
+}
 
 class Enum{
     public static void main(String[] args) {
@@ -165,9 +160,9 @@ class Enum{
 
 
 
-        System.out.println(Laptops.LAPTOP); 
+        System.out.println(Laptops.LAPTOP);
         System.out.println(Laptops.DESKTOP);
-//values
+//values 
         Laptops[] computers = Laptops.values();//The values() method returns an array containing all of the values of the enum in the order they are declared.
 
 for (Laptops c : computers) {//The for-each loop iterates over each element in the computers array, assigning each element to the variable c in each iteration.
@@ -193,7 +188,7 @@ System.out.println(Laptops1.TABLET.toString());//gives name of the enum constant
 
 Transport.CAR.move();
 
-typeOfVehicle v = TypeOfVehicle.TwoWheeler;
+TypeOfVehicle v = TypeOfVehicle.TwoWheeler;
 v.move();
      
     }

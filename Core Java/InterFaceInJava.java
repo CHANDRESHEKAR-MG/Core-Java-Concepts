@@ -58,7 +58,7 @@ class Car implements Vehicle, Brake{
 }
 
 
-// need of interface is to achieve multiple inheritance in java bcz a class can implement multiple interfaces but a class can extend only one class
+// //need of interface is to achieve multiple inheritance in java bcz a class can implement multiple interfaces but a class can extend only one class
 // class laptop extends Computer{
 //     public void code(){
 //         System.out.println("coding in laptop");
@@ -67,16 +67,21 @@ class Car implements Vehicle, Brake{
 
 // //
 // class developer {
-//     public void devApp(Computer c){//here l is the obj of laptop class and we are passing the object of laptop class to the method of developer class
+//     public void devAppLaptop(laptop l){//here l is the obj of laptop class and we are passing the object of laptop class to the method of developer class
 //     //no need to create the object of laptop class in main method and pass it to the method of developer class bcz we are passing the object of laptop class to the method of developer class
 //     //passing the object of laptop class to the method of developer class
 //     //this is called dependency injection
 //     //this is called loose coupling bcz the developer class is not dependent on the laptop class
 //     //laptop class is passed as a parameter to the method of developer class
 
-//         c.code();
+//         l.code();
 //         System.out.println("developing the application");
 //     }
+//     public void devAppDeskTop(Desktop des){
+//         des.code();
+//         System.err.println("Developed ");
+//     }
+
 // }
 // class tester extends developer{ 
 //     public void testApp(developer  dev){
@@ -198,13 +203,20 @@ class InterFaceInJava{
 
 
 
-    //      laptop lap = new laptop();
+        // laptop lap = new laptop();
         developer chandu = new developer();
-    //      chandu.devApp(lap );
-    //     // tester test = new tester();
-    //     Desktop desk = new Desktop();
-    //   //  chandu.devApp(desk); // here t=we are giving the desktop to the developer to work vurt h was devloping the application using the laptop only but now we are giving the desktop to the developer to work on it  he dont know the working of desktop 
-    //     //so he will not be able to work on it so we need to create a new method in developer class that will take the desktop as a parameter and then we can use the desktop to work on it
+        //   chandu.devAppLaptop(lap );
+        //   Desktop dek = new Desktop();
+        //   chandu.devAppDeskTop(dek);
+        // //  chandu.devAppDeskTop(dek);
+
+
+
+
+        // tester test = new tester();
+        Desktop desk = new Desktop();
+      //  chandu.devApp(desk); // here t=we are giving the desktop to the developer to work vurt h was devloping the application using the laptop only but now we are giving the desktop to the developer to work on it  he dont know the working of desktop 
+        //so he will not be able to work on it so we need to create a new method in developer class that will take the desktop as a parameter and then we can use the desktop to work on it
 
         Computer comp = new laptop();
         chandu.devApp(comp); // here we are passing the computer class reference and subclass objects
