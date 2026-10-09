@@ -47,8 +47,26 @@
 class MyThread extends Thread {//We create a class named MyThread that inherits from Java's Thread class.
 
     public void run() {//The run() method contains the task that the thread will perform.
-        System.out.println("Thread is running");
+       //Can you change run() to another name?
+        //System.out.println("Thread is running in run method ");
+
+        //or call the different method name iinside the run method name
+        //like 
+        display();//op is display method 
+
     }
+    public void display() {
+        System.out.println("Thread is running in display method not run");
+    }
+    
+
+//  Output:Nothing is printed!
+// Why?
+// When you call:
+// t1.start();
+// Java starts a new thread, which executes the run() method.
+// But you defined display() instead of overriding run(). Therefore, your display() method is not automatically executed.
+
 }
 public class ThreadsInJava{
     public static void main (String[] args){
@@ -65,8 +83,27 @@ public class ThreadsInJava{
 
 MyThread t1 = new MyThread();//We create an object of MyThread.
 //At this point, we have created a thread object, but we haven't started a new thread.
-        t1.start();
+        t1.start();//it can start new thread and auto matically executes the run method 
         //Calling start() asks the JVM to start a new thread. That thread then executes the run() method.
+
+        t1.display();
+
+//   obj.start()
+//      |
+//      v
+// A new thread starts
+//      |
+//      v
+// The new thread executes run()
+//      |
+//      v
+// Code inside run() executes
+// One important point ⚠️
+
+// You don't need to call run() yourself when you use start().
+
+// obj.start();  // Starts a new thread
+// obj.run();    // Direct method call; does not start a new thread
     }
 }
 
