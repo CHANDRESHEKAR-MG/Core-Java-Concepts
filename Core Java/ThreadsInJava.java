@@ -68,6 +68,94 @@ class MyThread extends Thread {//We create a class named MyThread that inherits 
 // But you defined display() instead of overriding run(). Therefore, your display() method is not automatically executed.
 
 }
+class B extends Thread{
+public void run() {
+
+        for (int i = 1; i <= 50; i++) {
+            System.out.println("Hii.....");
+            //wait second
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            
+        }
+}
+}
+class A extends Thread{
+public void run() {
+
+        for (int i = 1; i <= 50; i++) {
+            System.out.println("Hellooo.....");
+              try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+}
+}
+
+//join()
+class JoinDemo extends Thread {
+
+    public void run() {
+        System.out.println("Child thread finished its task");
+    }
+}
+
+//Thread Priority
+//1. What is Thread Priority?
+// Thread priority is a value that indicates the relative importance of a thread to the thread scheduler.
+// Imagine you have three workers performing different tasks:
+// 🔴 Worker 1: High-priority task.
+// 🟡 Worker 2: Medium-priority task.
+// 🟢 Worker 3: Low-priority task.
+// You can assign different priorities to threads in Java.
+// Important: A higher-priority thread is not guaranteed to execute first. Thread scheduling depends on the JVM and operating system.
+
+// 2. What is getPriority()?
+// The getPriority() method returns the current priority of a thread.
+// Syntax----threadObject.getPriority();
+
+class ThreadPriorityDemo extends Thread {
+
+    public void run() {
+        System.out.println("Thread is running");
+        //Output--5
+//Why is the output 5?
+
+//In Java, the default priority of a newly created thread is normally inherited from its parent thread. Since the main thread normally has priority 5,
+// the new thread also gets priority 5 in this example.
+    }
+}
+
+
+// 3. What is setPriority()?
+// The setPriority() method changes a thread's priority.
+// Syntax
+// threadObject.setPriority(priority);
+// The priority must be between 1 and 10.
+// Java provides three commonly used priority constants:
+
+// | Constant               | Value | Meaning          |
+// | ---------------------- | ----: | ---------------- |
+// | `Thread.MIN_PRIORITY`  |     1 | Minimum priority |
+// | `Thread.NORM_PRIORITY` |     5 | Normal priority  |
+// | `Thread.MAX_PRIORITY`  |    10 | Maximum priority |
+
+class ThreadPriorityDemo1 extends Thread {
+
+    public void run() {
+        System.out.println(
+            Thread.currentThread().getName()
+            + " Priority: "
+            + Thread.currentThread().getPriority()
+        );
+    }
+}
+
 public class ThreadsInJava{
     public static void main (String[] args){
         System.out.println("Hello");
@@ -82,11 +170,65 @@ public class ThreadsInJava{
 // Now, let's create another thread.
 
 MyThread t1 = new MyThread();//We create an object of MyThread.
+B t2 = new B();
+A t3 = new A();
+
 //At this point, we have created a thread object, but we haven't started a new thread.
-        t1.start();//it can start new thread and auto matically executes the run method 
+      //  t1.start();//it can start new thread and auto matically executes the run method 
+        //t2.start();
+          try {
+                Thread.sleep(2);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        //t3.start();
+        JoinDemo t11 = new JoinDemo();
+
+        t11.start();
+
+         try {
+                t11.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        System.out.println("Main thread continues");
+
+         ThreadPriorityDemo t12 = new ThreadPriorityDemo();
+
+        System.out.println(t12.getPriority());
+                //t3.setPriority(Thread.MAX_PRIORITY);//
         //Calling start() asks the JVM to start a new thread. That thread then executes the run() method.
 
-        t1.display();
+       // t1.display();
+
+       ThreadPriorityDemo1 t111 = new ThreadPriorityDemo1();
+        ThreadPriorityDemo1 t222 = new ThreadPriorityDemo1();
+        ThreadPriorityDemo1 t333 = new ThreadPriorityDemo1();
+
+        t111.setPriority(Thread.MIN_PRIORITY);
+        t222.setPriority(Thread.NORM_PRIORITY);
+        t333.setPriority(Thread.MAX_PRIORITY);
+
+        //0r
+
+t111.setPriority(1);
+t222.setPriority(5);
+t333.setPriority(10);
+
+// What happens if you use an invalid priority?
+// t1.setPriority(15);
+
+// Output/error: Java throws an IllegalArgumentException because 15 is outside the valid range.
+
+// Valid priorities are from 1 to 10.
+
+// Priority 10 always executes first.
+// Priority 10 executes ten times faster.
+// Priority 1 cannot execute until priority 10 finishes.
+
+        t111.start();
+        t222.start();
+        t333.start();
 
 //   obj.start()
 //      |
