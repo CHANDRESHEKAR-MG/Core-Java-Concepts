@@ -155,6 +155,48 @@ class ThreadPriorityDemo1 extends Thread {
         );
     }
 }
+//RUNNABLE 
+// 1. What is Runnable in Java?
+
+// Runnable is an interface in Java that represents a task to be executed by a thread.
+
+// In simple words:
+
+// Thread represents the thread that executes the task.
+// Runnable represents the task that needs to be executed.
+// run() contains the code for the task.
+// start() starts a new thread.
+
+// Think of it like this:
+
+// Runnable = Work to do
+// Thread = Worker who performs the work
+// class AA implements Runnable{
+//     public void run() {
+
+//         for (int i = 1; i <= 50; i++) {
+//             System.out.println("Hellooo.....");
+//               try {
+//                 Thread.sleep(10);
+//             } catch (InterruptedException e) {
+//                 e.printStackTrace();
+//             }
+//         }
+// }
+// }
+// class BB implements Runnable{
+//     public void run() {
+
+//         for (int i = 1; i <= 50; i++) {
+//             System.out.println("Hiiii.....");
+//               try {
+//                 Thread.sleep(10);
+//             } catch (InterruptedException e) {
+//                 e.printStackTrace();
+//             }
+//         }
+// }
+// }
 
 public class ThreadsInJava{
     public static void main (String[] args){
@@ -229,6 +271,45 @@ t333.setPriority(10);
         t111.start();
         t222.start();
         t333.start();
+
+        //runnable
+    //  Runnable a1 = new AA();   
+    //using lambda expression 
+    Runnable a1 =() ->
+    {
+       // public void run() {
+
+        for (int i = 1; i <= 50; i++) {
+            System.out.println("Hellooo.....");
+              
+                try{
+                    Thread.sleep(10);
+                }
+                catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    };
+    // to run this uncomment the above AA and BB class to reduce lines of code lambda expression in anonyous class can be used
+    
+      //Runnable b1 = new BB(); 
+
+      Runnable b1 = () ->{
+        for (int i = 1; i <= 50; i++) {
+            System.out.println("Hii.....");
+              
+                try{
+                    Thread.sleep(10);
+                }
+                catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+      };
+        Thread t = new Thread(a1);
+        Thread t0 = new Thread(b1);
+        t.start();
+        t0.start();
 
 //   obj.start()
 //      |
