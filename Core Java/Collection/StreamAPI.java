@@ -61,7 +61,7 @@ numbers.stream()
        .filter(number -> number > 50)
        .map(number -> number * 2)
        .sorted()//incresing or
-       .forEach(System.out::println);
+       .forEach(n7->System.out.println("soreted "+n7));
 
  numbers.stream()
 .sorted(Comparator.reverseOrder())//decreasing order 
@@ -70,51 +70,57 @@ numbers.stream()
 
        numbers.stream()
        .distinct()
-       .forEach(System.out::println);
+        .forEach(n8->System.out.println("distinct "+n8));
 
 
        //limit() — Get the first N elements
 numbers.stream()
        .limit(3)
-       .forEach(System.out::println);
+        .forEach(n9->System.out.println("limited first 3 ele  "+n9));
 
       // skip() — Skip the first N elements
 numbers.stream()
        .skip(3)
-       .forEach(System.out::println);
+        .forEach(n10->System.out.println("Skip mentioned element "+n10));
+
 
       // min() — Find the minimum value
 int min = numbers.stream()
                  .min(Integer::compareTo)
                  .orElseThrow();
+                 // .ifPresent(min1->System.out.println("min "+min1));
+                System.out.println("min " + min);
+
 //anyMatch() — Check whether any element matches
 boolean result = numbers.stream()
                         .anyMatch(n -> n > 25);
+ //.forEach(n11->System.out.println("any elemen match with 25  "+n11));
 
-System.out.println(result);
+
+System.out.println(" Any Match "+result);
                 // max() — Find the maximum value
 int max = numbers.stream()
                  .max(Integer::compareTo)
                  .orElseThrow();
 
-System.out.println(max);
+System.out.println("max ele "+max);
 
 //anyMatch() — Check whether any element matches
-boolean result2 = numbers.stream()
-                        .anyMatch(n -> n > 25);
+// boolean result2 = numbers.stream()
+//                         .anyMatch(n -> n > 25);
 
-System.out.println(result2);
+// System.out.println(result2);
 
 //noneMatch() — Check whether no elements match
 boolean result3 = numbers.stream()
                         .noneMatch(n -> n < 0);
 
-System.out.println(result3);
+System.out.println("None Match "+result3);
 //allMatch() — Check whether all elements match
 boolean result1 = numbers.stream()
                         .allMatch(n7 -> n7 > 0);
 
-System.out.println(result1);
+System.out.println("All MAtch"+result1);
 
 //findFirst() — Get the first element
 int first = numbers.stream()
@@ -122,12 +128,12 @@ int first = numbers.stream()
                    .orElseThrow();
 
 
-System.out.println(first);
+System.out.println("Find First "+first);
 //findAny() — Get any element
 numbers.stream()
        .filter(n -> n > 15)
        .findAny()
-       .ifPresent(System.out::println);
+       .ifPresent(n13->System.out.println("find any "+n13));
 //collect() — Store processed elements in a collectio
       List<Integer> doubled = numbers.stream()
         .map(n -> n * 2)
