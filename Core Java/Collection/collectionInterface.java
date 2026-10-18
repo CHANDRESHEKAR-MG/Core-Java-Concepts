@@ -53,15 +53,27 @@ class collectionInterface{
             System.out.println(n2);
             
         }
-        HashMap<Integer,Integer> c3 = new HashMap<>();//In SORTed orderr
+        HashMap<String,Integer> c3 = new HashMap<>();//In SORTed orderr
         System.out.println("Hashmap");
-        c3.put(78,1);
-        c3.put(95,2);
-        c3.put(58,85);
-        c3.put(728,3);
+        c3.put("harsh",1);
+        c3.put("kempi",2);
+        c3.put("timmanna",85);
+        c3.put("konga",3);
        // c3.put(key, value)
+       System.out.println(c3);
+       System.out.println(c3.keySet());//provide all keys 
+       for (String key : c3.keySet()){
+        System.out.println(key +" : "+c3.get(key));
+       }
+       System.out.println(c3.containsValue(1));
+       System.out.println(c3.entrySet());
         System.out.println(c2.contains(2));
         System.out.println(c3.containsKey(58));
+        System.out.println(c3.values());
+        System.out.println(c3.remove("kempi",2));
+        System.out.println(c3);
+        System.out.println(c3.remove("konga"));
+        System.out.println(c3);
         
         // for(int n3 : c3){
         //     System.out.println(n3);
