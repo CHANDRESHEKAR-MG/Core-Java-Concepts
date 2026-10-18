@@ -1,6 +1,50 @@
 import java.util.*;
-class collectionInterface{
+class  Student{
+    int age;
+    String name;
+    public Student(int age,String name){
+        this.age=age;
+        this.name=name;
+    }
+    public String toString(){
+        return "Student [Age="+age+", name="+name+"]";
+    }
+}
+public class collectionInterface{
     public static void main(String[] args) {
+        ArrayList<Student> c5 = new ArrayList<>();
+        c5.add(new Student (21,"navin"));
+        c5.add(new Student (91,"ranga"));
+        c5.add(new Student (71,"narada"));
+        c5.add(new Student (81,"malla"));
+        System.out.println(c5);
+        for (Student s : c5 ){
+            System.out.println(s);
+        }
+        //sort vbased on age
+
+Comparator<Student> num1 = new Comparator<Student>()
+        {
+              public int compare(Student i, Student j)
+              {
+                if(i.age>j.age){
+                    return 1;
+
+                }
+                else{
+                    return -1;
+                }
+              }
+        };
+
+        Collections.sort(c5,num1);
+        System.out.println("Sort based on age");
+        for(Student s1 : c5){
+            
+            System.out.println(s1);
+        }
+
+
         ArrayList<Integer> c4 = new ArrayList<Integer>();
         c4.add(57);
         c4.add(92);
