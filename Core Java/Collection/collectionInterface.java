@@ -1,6 +1,28 @@
 import java.util.*;
 class collectionInterface{
     public static void main(String[] args) {
+        ArrayList<Integer> c4 = new ArrayList<Integer>();
+        c4.add(57);
+        c4.add(92);
+        c4.add(11);
+        c4.add(780);
+        System.out.println(c4);
+        //to sort this list based on last v=digit using comparator
+        Comparator<Integer> num = new Comparator<Integer>()
+        {
+              public int compare(Integer i, Integer j)
+              {
+                if(i%10>j%10){
+                    return 1;
+                }
+                else {
+                    return -1;
+                }
+              }
+        };
+        Collections.sort(c4,num);
+        System.out.println(c4);
+
         //ArrayList is a Non Contigious memory and it is a fixed size it a variable in size  so 
                 //Collection c = new Collection();
         ArrayList<Integer> c = new ArrayList<Integer>();
@@ -31,6 +53,7 @@ class collectionInterface{
            //Sort collect 
            Collections.sort(c);
             System.out.println("Sort  = "+c);
+             
 
      System.out.println(c.get(2));
      Set<Integer> c1 = new HashSet<Integer>();//Accept only uique
