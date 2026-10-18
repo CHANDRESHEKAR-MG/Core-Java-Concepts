@@ -23,19 +23,20 @@ public class collectionInterface{
         }
         //sort vbased on age
 
-Comparator<Student> num1 = new Comparator<Student>()
-        {
-              public int compare(Student i, Student j)
-              {
-                if(i.age>j.age){
-                    return 1;
+// Comparator<Student> num1 = new Comparator<Student>()
+//         {
+//               public int compare(Student i, Student j)
+//               {
+//                 if(i.age>j.age){
+//                     return 1;
 
-                }
-                else{
-                    return -1;
-                }
-              }
-        };
+//                 }
+//                 else{
+//                     return -1;
+//                 }
+//               }
+//         };
+Comparator<Student> num1 = (i,j)->i.age>j.age?1:-1;
 
         Collections.sort(c5,num1);
         System.out.println("Sort based on age");
@@ -52,18 +53,23 @@ Comparator<Student> num1 = new Comparator<Student>()
         c4.add(780);
         System.out.println(c4);
         //to sort this list based on last v=digit using comparator
-        Comparator<Integer> num = new Comparator<Integer>()
-        {
-              public int compare(Integer i, Integer j)
-              {
-                if(i%10>j%10){
-                    return 1;
-                }
-                else {
-                    return -1;
-                }
-              }
-        };
+        // Comparator<Integer> num = new Comparator<Integer>()
+        // {
+            //   public int compare(Integer i, Integer j)
+            //   {
+            //     if(i%10>j%10){
+            //         return 1;
+            //     }
+            //     else {
+            //         return -1;
+            //     }
+            //   }
+    //};
+            //lambda expression 
+            System.out.println("from labda express");
+            Comparator<Integer> num = (i,j) -> i%10 > j%10?1:-1;
+
+
         Collections.sort(c4,num);
         System.out.println(c4);
 
